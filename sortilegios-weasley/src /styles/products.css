@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+.products-page {
+  padding: 2rem 1rem;
+  font-family: 'Cinzel Decorative', cursive;
+  background: url("maxresdefault.jpg") center center / cover no-repeat;
+
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+}
+
+.products-page h2 {
+  font-size: 2rem;
+  color: #ffe8b0;
+  text-shadow: 2px 2px 5px #000;
+  margin-bottom: 1.5rem;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.product-card {
+  background: rgba(250, 245, 230, 0.9);
+  border: 2px solid #ae8625;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 280px;
+  padding: 1rem;
+  box-shadow: 0 0 10px #ae8625, 0 0 20px #ffefc2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ffd700, 0 0 30px #ffda9e;
+  animation: sparkles 1s infinite alternate;
+}
+
+@keyframes sparkles {
+  0% {
+    box-shadow: 0 0 10px #ffec99, 0 0 20px #ffc300;
+  }
+  100% {
+    box-shadow: 0 0 15px #ffd700, 0 0 30px #fff3b0;
+  }
+}
+
+.product-image {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  background-color: #fff3d1;
+  padding: 0.4rem;
+  border: 1px solid #dab23c;
+}
+
+.blurred {
+  filter: blur(5px);
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  color: #4b2e05;
+  margin-bottom: 0.3rem;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #5a3921;
+}
+
+.price {
+  color: #a45c06;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.btn-add {
+  margin-top: 0.6rem;
+  background-color: #6a040f;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-add:hover {
+  background-color: #370617;
+}
+
+
+@media (max-width: 768px) {
+    .products-page {
+      padding: 1rem;
+    }
+  
+    .products-page h2 {
+      font-size: 5vw; /* Escala con el ancho de pantalla */
+    }
+  
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(40vw, 2fr)); /* Cada tarjeta ~45% del ancho */
+      gap: 1rem;
+      justify-items: center;
+    }
+  
+    .product-card {
+      width: 100%;
+      max-width: none;
+      transform: scale(1);
+      padding: 3vw; /* Espaciado proporcional */
+      box-sizing: border-box;
+    }
+  
+    .product-card h3 {
+      font-size: 3vw;
+    }
+  
+    .product-card p,
+    .price {
+      font-size: 2.5vw;
+    }
+  
+    .btn-add {
+      width: 100%;
+      font-size: 3.5vw;
+      padding: 2vw;
+    }
+  
+    .product-image {
+      height: 10vh; /* Altura relativa al alto de pantalla */
+    }
+  }
