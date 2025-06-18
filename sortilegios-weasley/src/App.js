@@ -2,8 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import ProductsPage from "./pages/ProductsPage";
+import Footer from './components/Footer';
 import "./styles/magicCursor.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
         <NavBar />
         <ProductsPage />
       </main>
+      <Footer />
     </div>
   );
 }
