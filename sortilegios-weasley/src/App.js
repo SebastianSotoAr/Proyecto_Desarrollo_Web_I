@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Header/>
       <main className="p-6">
-        <div class="d-flex">
+        <div class="d-flex  align-items-start">
           <div class="sidebar"> 
             <Filter/>
           </div>
