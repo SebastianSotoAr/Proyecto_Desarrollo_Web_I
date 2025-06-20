@@ -4,22 +4,24 @@ import Header from './components/Header';
 import ProductsPage from "./pages/ProductsPage";
 import Footer from './components/Footer';
 import Filter from './components/Filter';
+import LoginPage from './pages/LogginPage';
 import "./styles/magicCursor.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <LoginPage />
+      {/* <Header />
       <main className="p-6">
         <div class="d-flex  align-items-start">
-          <div class="sidebar"> 
-            <Filter/>
+          <div class="sidebar">
+            <Filter />
           </div>
-          <ProductsPage/>
+          <ProductsPage />
         </div>
-      </main>
-      <Footer/>
+      </main> */}
+      <Footer />
     </div>
   );
 }
