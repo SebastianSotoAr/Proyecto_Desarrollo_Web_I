@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/products.css";
 
-const ProductCard = ({ product, isAuthorized }) => {
+const ProductCard = ({ product, isAuthorized, onDelete }) => {
   const priceCOP = product.priceGalleons * 5000;
   const isForbidden = product.forbidden && !isAuthorized;
 
@@ -19,6 +19,19 @@ const ProductCard = ({ product, isAuthorized }) => {
       </p>
       {!isForbidden && (
         <button className="btn-add">Agregar al carrito</button>
+      )}
+      {isAuthorized && !product.original && onDelete && (
+        <button
+          className="btn-add"
+          style={{ marginTop: "0.5rem", backgroundColor: "#460b0b" }}
+          onClick={() => {
+            if (window.confirm("¿Estás seguro de eliminar este producto?")) {
+              onDelete(product.id);
+            }
+          }}
+        >
+          ❌ Eliminar producto
+        </button>
       )}
     </div>
   );

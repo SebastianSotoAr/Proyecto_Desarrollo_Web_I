@@ -7,6 +7,7 @@ const products = [
     category: "Artículos de defensa mágica",
     image: "/PolvoPeruanodeOscuridadInstantánea.png",
     forbidden: true,
+    original: true
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const products = [
     category: "Bromas mágicas",
     image: "/ExtendableEars.jpg",
     forbidden: false,
+    original: true
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const products = [
     category: "Dulces encantados",
     image: "/pastillasVomitivas.png",
     forbidden: false,
+    original: true
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const products = [
     category: "Dulces encantados",
     image: "/PastillasFaintingFancies.jpg",
     forbidden: false,
+    original: true
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const products = [
     category: "Bromas mágicas",
     image: "/Cajadebromastruculentas.jpg",
     forbidden: false,
+    original: true
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ const products = [
     category: "Artículos de defensa mágica",
     image: "/SombrerosAcefalos.jpg",
     forbidden: true,
+    original: true
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ const products = [
     category: "Artículos explosivos",
     image: "/DetonadorTrampa.png",
     forbidden: false,
+    original: true
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ const products = [
     category: "Bromas mágicas",
     image: "/ChicleSangriento.png",
     forbidden: false,
+    original: true
   }
 ];
 

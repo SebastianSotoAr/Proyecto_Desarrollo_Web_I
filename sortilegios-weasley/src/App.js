@@ -21,6 +21,7 @@ function App() {
           <ProductsPage />
         </div>
       </main> */}
+      <ProductsPage />
       <Footer />
     </div>
   );
