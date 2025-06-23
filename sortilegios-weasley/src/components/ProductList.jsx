@@ -81,95 +81,104 @@ const ProductList = ({ isAuthorized }) => {
   };
 
   return (
-    <>
-      <div className="product-grid">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            isAuthorized={isAuthorized}
-            onDelete={handleDelete}
-          />
+       <>
+        {["Bromas mágicas", "Dulces encantados", "Artículos explosivos", "Artículos de defensa mágica"].map((category) => (
+          <div key={category} className="category-section">
+            <h2 className="category-title">{category}</h2>
+            <div className="product-grid">
+              {products
+                .filter((product) => product.category === category)
+                .map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    isAuthorized={isAuthorized}
+                    onDelete={handleDelete}
+                  />
+                ))}
+            </div>
+          </div>
         ))}
 
         {isAuthorized && (
           <>
-            <div className="product-card add-product-card">
-              {!showForm ? (
-                <button className="btn-add" onClick={() => setShowForm(true)}>
-                  ➕ Agregar nuevo producto
-                </button>
-              ) : (
-                <form onSubmit={handleAddProduct} className="form-inside-card">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Nombre"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                  <textarea
-                    name="description"
-                    placeholder="Descripción"
-                    value={formData.description}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="number"
-                    name="priceGalleons"
-                    placeholder="Precio (galeones)"
-                    value={formData.priceGalleons}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="category"
-                    placeholder="Categoría"
-                    value={formData.category}
-                    onChange={handleChange}
-                  />
-
-                  <select name="image" value={formData.image} onChange={handleChange}>
-                    <option value="/default.png">Selecciona imagen</option>
-                    <option value="/PolvoPeruanodeOscuridadInstantánea.png">Polvo Oscuridad</option>
-                    <option value="/ExtendableEars.jpg">Orejas Extensibles</option>
-                    <option value="/pastillasVomitivas.png">Caramelos Vomitivos</option>
-                    <option value="/PastillasFaintingFancies.jpg">Pastillas Fainting</option>
-                    <option value="/Cajadebromastruculentas.jpg">Caja de bromas</option>
-                    <option value="/SombrerosAcefalos.jpg">Sombreros acéfalos</option>
-                    <option value="/DetonadorTrampa.png">Detonador trampa</option>
-                    <option value="/ChicleSangriento.png">Chicle sangriento</option>
-                  </select>
-
-                  <label>
+            <div className="product-grid">
+              <div className="product-card add-product-card">
+                {!showForm ? (
+                  <button className="btn-add" onClick={() => setShowForm(true)}>
+                    ➕ Agregar nuevo producto
+                  </button>
+                ) : (
+                  <form onSubmit={handleAddProduct} className="form-inside-card">
                     <input
-                      type="checkbox"
-                      name="forbidden"
-                      checked={formData.forbidden}
+                      type="text"
+                      name="name"
+                      placeholder="Nombre"
+                      value={formData.name}
                       onChange={handleChange}
+                      required
                     />
-                    ¿Prohibido?
-                  </label>
-                  <button type="submit" className="btn-add">✨ Crear</button>
-                </form>
-              )}
-            </div>
+                    <textarea
+                      name="description"
+                      placeholder="Descripción"
+                      value={formData.description}
+                      onChange={handleChange}
+                      required
+                    />
+                    <input
+                      type="number"
+                      name="priceGalleons"
+                      placeholder="Precio (galeones)"
+                      value={formData.priceGalleons}
+                      onChange={handleChange}
+                      required
+                    />
+                    <select name="category" value={formData.category} onChange={handleChange} required>
+                      <option value="">Selecciona categoría</option>
+                      <option value="Bromas mágicas">Bromas mágicas</option>
+                      <option value="Dulces encantados">Dulces encantados</option>
+                      <option value="Artículos explosivos">Artículos explosivos</option>
+                      <option value="Artículos de defensa mágica">Artículos de defensa mágica</option>
+                    </select>
 
-            <div className="product-card reset-card">
-              <h3>🔄 Restaurar productos</h3>
-              <p>Restaura el catálogo original. Se eliminarán los productos añadidos.</p>
-              <button className="btn-add" onClick={handleResetProducts}>
-                Restaurar
-              </button>
-            </div>
+                    <select name="image" value={formData.image} onChange={handleChange}>
+                      <option value="/default.png">Selecciona imagen</option>
+                      <option value="/PolvoPeruanodeOscuridadInstantánea.png">Polvo Oscuridad</option>
+                      <option value="/ExtendableEars.jpg">Orejas Extensibles</option>
+                      <option value="/pastillasVomitivas.png">Caramelos Vomitivos</option>
+                      <option value="/PastillasFaintingFancies.jpg">Pastillas Fainting</option>
+                      <option value="/Cajadebromastruculentas.jpg">Caja de bromas</option>
+                      <option value="/SombrerosAcefalos.jpg">Sombreros acéfalos</option>
+                      <option value="/DetonadorTrampa.png">Detonador trampa</option>
+                      <option value="/ChicleSangriento.png">Chicle sangriento</option>
+                    </select>
 
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="forbidden"
+                        checked={formData.forbidden}
+                        onChange={handleChange}
+                      />
+                      ¿Prohibido?
+                    </label>
+                    <button type="submit" className="btn-add">✨ Crear</button>
+                  </form>
+                )}
+              </div>
+
+              <div className="product-card reset-card">
+                <h3>🔄 Restaurar productos</h3>
+                <p>Restaura el catálogo original. Se eliminarán los productos añadidos.</p>
+                <button className="btn-add" onClick={handleResetProducts}>
+                  Restaurar
+                </button>
+              </div>
+            </div>
           </>
         )}
-      </div>
-    </>
+      </>
+
   );
 };
 

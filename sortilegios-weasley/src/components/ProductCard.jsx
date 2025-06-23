@@ -6,7 +6,8 @@ const ProductCard = ({ product, isAuthorized, onDelete }) => {
   const isForbidden = product.forbidden && !isAuthorized;
 
   return (
-    <div className="product-card">
+    <div className={`product-card ${product.category.replace(/\s+/g, '-').toLowerCase()}`}>
+
       <img
         src={product.image}
         alt={product.name}
