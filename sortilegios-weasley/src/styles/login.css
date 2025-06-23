@@ -1,8 +1,9 @@
 .login-page {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 100px); /* Ajusta según el tamaño de tu header/footer */
+
   background-color: #f0f2f5;
   padding: 20px;
 }

@@ -16,4 +16,32 @@
     font-size: 1.1rem;
     color: #ffefc2;
   }
+  /* Responsive para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .home-description {
+      padding: 1.5rem 1rem;
+    }
+  
+    .home-description h1 {
+      font-size: 1.5rem;
+    }
+  
+    .home-description p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-description {
+      padding: 1rem;
+    }
+  
+    .home-description h1 {
+      font-size: 1.2rem;
+    }
+  
+    .home-description p {
+      font-size: 0.95rem;
+    }
+  }
   

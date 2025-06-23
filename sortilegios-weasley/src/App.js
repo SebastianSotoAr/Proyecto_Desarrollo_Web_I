@@ -9,9 +9,8 @@ import CartPage from "./pages/CartPage";
 import "./styles/magicCursor.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import TermsModal from './components/TermsModal'; 
 import HomeDescription from "./pages/HomeDescription";
-
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -22,7 +21,7 @@ function App() {
 
   return (
     <Router>
-      
+      <ScrollToTop />
       <div className="App">
       <Header isLoggedIn={isAdmin} onLogout={() => setIsAdmin(false)} />
 
