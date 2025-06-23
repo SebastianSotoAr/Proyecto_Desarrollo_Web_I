@@ -23,7 +23,7 @@ const LoginPage = ({ onLoginSuccess }) => {
       onLoginSuccess(username);
       navigate('/')
     } else {
-      setError('Usuario o contraseña incorrectos.');
+      setError('Usuario o contraseña incorrectos prueba admin de usuario y admin contraseña.');
     }
   };
 
