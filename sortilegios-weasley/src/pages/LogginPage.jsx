@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import "../styles/login.css";
 import TermsModal from '../components/TermsModal';
+import { useNavigate } from 'react-router-dom';
+
 
 const LoginPage = ({ onLoginSuccess }) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,6 +21,7 @@ const LoginPage = ({ onLoginSuccess }) => {
     }
     if (username === 'admin' && password === 'admin') {
       onLoginSuccess(username);
+      navigate('/')
     } else {
       setError('Usuario o contraseña incorrectos.');
     }
