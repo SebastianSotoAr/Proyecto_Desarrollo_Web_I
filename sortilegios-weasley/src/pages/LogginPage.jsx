@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "../styles/login.css";
-import "../styles/TermsModal.css"; 
+import TermsModal from '../components/TermsModal';
 
 const LoginPage = ({ onLoginSuccess }) => {
   const [username, setUsername] = useState('');
@@ -50,17 +50,14 @@ const LoginPage = ({ onLoginSuccess }) => {
         </form>
 
         {/* Modal personalizado */}
+        {/* Reutiliza el componente TermsModal con control manual */}
         {showTerms && (
-          <div className="modal-overlay">
-            <div className="modal-content">
-              <h2>Términos y Condiciones</h2>
-              <p>Este sitio está destinado a la venta ficticia de productos mágicos. Al acceder, aceptas no usar estos productos para fines oscuros 🧙‍♂️.</p>
-              <p>Los datos ingresados son de prueba y no se almacenan.</p>
-              <p>Los precios en galeones no representan valor real.</p>
-              <button onClick={() => setShowTerms(false)}>Cerrar</button>
-            </div>
-          </div>
-        )}
+  <TermsModal
+    forceOpen={true}
+    onClose={() => setShowTerms(false)}
+  />
+)}
+
       </div>
     </div>
   );

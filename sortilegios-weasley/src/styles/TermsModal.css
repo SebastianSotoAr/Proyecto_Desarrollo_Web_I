@@ -12,18 +12,21 @@
 }
 
 .modal-content {
-    background-color: #fdf5d8; /* Fondo tipo papiro */
-    color: #4b2e05; /* Texto legible en tinta marrón */
-    padding: 2.5rem;
+    background-color: #fdf5d8; /* Color papiro */
+    color: #4b2e05;
+    padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(255, 222, 173, 0.6), 0 0 10px #a0522d;
     max-width: 600px;
     width: 90%;
-    text-align: center;
+    max-height: 80vh;         
+    overflow-y: auto;         
+    text-align: left;
     font-family: 'Georgia', serif;
     position: relative;
     border: 3px solid #deb887;
   }
+  
   
 
   .modal-content h2 {

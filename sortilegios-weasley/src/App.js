@@ -22,7 +22,7 @@ function App() {
 
   return (
     <Router>
-      <TermsModal/>
+      
       <div className="App">
       <Header isLoggedIn={isAdmin} onLogout={() => setIsAdmin(false)} />
 
