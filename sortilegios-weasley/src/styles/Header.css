@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+.magical-header {
+  font-family: 'Cinzel Decorative', cursive;
+  background: linear-gradient(to right, #4b2e05, #6a040f);
+  box-shadow: 0 0 10px #ae8625, 0 0 20px #ffefc2;
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #ffe8b0 !important;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.navbar-nav .nav-link {
+  color: #fff3d1 !important;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700 !important;
+  text-shadow: 0 0 5px #ffefc2;
+}
+
+.navbar-toggler {
+  border-color: #fff3d1;
+}
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.navbar-nav {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-nav .nav-item {
+  display: flex;
+  align-items: center;
+}

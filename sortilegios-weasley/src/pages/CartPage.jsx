@@ -53,7 +53,7 @@ const CartPage = () => {
             💰 {toGalleons(total)} Galeones / ${total.toLocaleString()} COP
           </span>
         </div>
-        <button className="checkout-button" onClick={() => alert("Compra completada ✨")}>
+        <button className="checkout-button" onClick={() => alert("¡Tu pedido ha sido enviado por lechuza!")}>
           Continuar compra
         </button>
       </div>

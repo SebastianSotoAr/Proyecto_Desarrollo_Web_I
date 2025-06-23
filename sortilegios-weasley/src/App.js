@@ -1,31 +1,49 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-import ProductsPage from "./pages/ProductsPage";
 import Footer from './components/Footer';
-import Filter from './components/Filter';
+import ProductsPage from "./pages/ProductsPage";
 import LoginPage from './pages/LogginPage';
 import CartPage from "./pages/CartPage";
 import "./styles/magicCursor.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import TermsModal from './components/TermsModal'; 
+import HomeDescription from "./pages/HomeDescription";
+
+
 function App() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const handleLoginSuccess = (authorized) => {
+    setIsAdmin(authorized);
+  };
+
   return (
-    <div className="App">
-      <LoginPage />
-      {/* <Header />
-      <main className="p-6">
-        <div class="d-flex  align-items-start">
-          <div class="sidebar">
-            <Filter />
-          </div>
-          <ProductsPage />
-        </div>
-      </main> */}
-      <ProductsPage />
-      <CartPage />
-      <Footer />
-    </div>
+    <Router>
+      <TermsModal/>
+      <div className="App">
+      <Header isLoggedIn={isAdmin} onLogout={() => setIsAdmin(false)} />
+
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <HomeDescription />
+                  <ProductsPage isAuthorized={isAdmin} />
+                </>
+              }
+            />
+            <Route path="/login" element={<LoginPage onLoginSuccess={handleLoginSuccess} />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

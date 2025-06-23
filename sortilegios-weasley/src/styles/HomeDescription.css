@@ -1,0 +1,19 @@
+.home-description {
+    background: linear-gradient(to right, #4b2e05, #6a040f);
+    border-radius: 16px;
+    box-shadow: 0 0 20px #ae8625;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Cinzel Decorative', serif;
+  }
+  
+  .home-description h1 {
+    color: #ffd700;
+    text-shadow: 1px 1px 5px #000;
+  }
+  
+  .home-description p {
+    font-size: 1.1rem;
+    color: #ffefc2;
+  }
+  
