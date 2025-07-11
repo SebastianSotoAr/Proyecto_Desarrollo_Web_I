@@ -1,0 +1,93 @@
+/* OrdersPage.css */
+.orders-page {
+  padding: 2rem;
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(to right, #fef9f4, #f7e9d7);
+}
+
+.order-card {
+  background-color: #fff8e1;
+  border: 2px solid #b08429;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(176, 132, 41, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.order-card:hover {
+  transform: scale(1.01);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.order-details {
+  margin-top: 1rem;
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.order-details.open {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.owl-delivery {
+  margin-top: 10px;
+  background: #f5f0ff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px dashed #c3b1e1;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.progress-container {
+  position: relative;
+  height: 30px;
+  background: #e6d5f7;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #845ec2, #d65db1);
+  transition: width 1s ease-in-out;
+}
+
+.owl {
+  position: absolute;
+  top: -25px;
+  left: calc(var(--progress) * 1%);
+  font-size: 24px;
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

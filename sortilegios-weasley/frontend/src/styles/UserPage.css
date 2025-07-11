@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+.profile-page {
+  font-family: 'UnifrakturCook', cursive;
+  background: url("maxresdefault.jpg") center center / cover no-repeat;
+  background-attachment:fixed ;
+  color: #fcefb4;
+  min-height: 100vh;
+  padding: 2rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.profile-card {
+  background: rgba(28, 15, 4, 0.9);
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  box-shadow: 0 0 20px #d4af37;
+  animation: fadeInCard 1s ease-in-out;
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-card h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff3a7;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.profile-info {
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.profile-info span.label {
+  font-weight: bold;
+  color: #ffd700;
+  margin-right: 0.5rem;
+}
+
+.magic-button {
+  display: inline-block;
+  background-color: #6a040f;
+  color: #fff7d6;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #6a040f, 0 0 20px #69005d;
+  margin-top: 1rem;
+}
+
+.magic-button:hover {
+  background-color: #370617;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #f0f, 0 0 30px #ffcaff;
+  animation: flicker 0.8s infinite alternate;
+}
+
+@keyframes flicker {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.5); }
+}
+
+/* Aura mágica flotando */
+.magic-aura {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, transparent 70%);
+  border-radius: 50%;
+  animation: pulseAura 2s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes pulseAura {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.5); opacity: 0.3; }
+}
+
+/* Input mágico */
+input.magic-input, select.magic-input {
+  background-color: #fff8e1;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #3c1a00;
+  transition: box-shadow 0.3s ease;
+}
+
+input.magic-input:focus, select.magic-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #ffe57f, 0 0 15px #ffd700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 1rem;
+  }
+
+  .profile-card h2 {
+    font-size: 2rem;
+  }
+
+  .profile-info {
+    font-size: 1rem;
+  }
+
+  .magic-button {
+    font-size: 1rem;
+  }
+}
