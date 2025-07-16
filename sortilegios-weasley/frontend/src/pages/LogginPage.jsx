@@ -12,8 +12,7 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const [showTerms, setShowTerms] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
- const { login } = useContext(AuthContext);
-
+  const { login } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -29,21 +28,16 @@ const LoginPage = () => {
         username,
         password
       });
-      console.log("Respuesta:", res);
       
       const { token, user } = res.data;
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
 
       login(user, token);
-     
-
       navigate('/');
     } catch (err) {
-  console.error("Error en login:", err);
-  console.error("Respuesta del servidor:", err.response?.data);
-  setError('Credenciales inválidas. Verifica usuario y contraseña.');
-}
+      setError('Credenciales inválidas. Verifica usuario y contraseña.');
+    }
   };
 
   return (
@@ -70,13 +64,19 @@ const LoginPage = () => {
 
           {error && <p className="error-message">{error}</p>}
           <button type="submit" className="login-btn">Acceder</button>
+
+          {/* ✅ BOTÓN PARA REGISTRARSE */}
+          <button
+            type="button"
+            className="register-btn"
+            onClick={() => navigate("/register")}
+          >
+            Registrarse
+          </button>
         </form>
 
         {showTerms && (
-          <TermsModal
-            forceOpen={true}
-            onClose={() => setShowTerms(false)}
-          />
+          <TermsModal forceOpen={true} onClose={() => setShowTerms(false)} />
         )}
       </div>
     </div>

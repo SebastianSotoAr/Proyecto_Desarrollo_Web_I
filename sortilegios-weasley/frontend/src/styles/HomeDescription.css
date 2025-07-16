@@ -1,47 +1,75 @@
+.sharedBackground {
+  background: url("maxresdefault.jpg") center center / cover no-repeat;
+  background-attachment: fixed;
+
+  font-family: 'Cinzel Decorative', cursive;
+}
+
 .home-description {
-    background: linear-gradient(to right, #4b2e05, #6a040f);
-    border-radius: 16px;
-    box-shadow: 0 0 20px #ae8625;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
     font-family: 'Cinzel Decorative', serif;
-  }
-  
-  .home-description h1 {
+    transition: all 0.3s ease-in-out;
+    overflow: hidden; /* evita espacio extra al cerrar */
+    padding-bottom: 0; /* ajustamos padding cuando está cerrado */
+
+}
+
+.home-description .container {
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    background: url("maxresdefault.jpg") center center / cover no-repeat;
+  background-attachment: fixed;
+}
+
+/* Cuando no está desplegado */
+.home-description.closed .container {
+    max-height: 120px; /* lo justo para el título y botón */
+    padding-bottom: 0.5rem;
+    overflow: hidden;
+    border-radius: 16px;
+    background: linear-gradient(to right, #4b2e05, #6a040f);
+}
+
+/* Cuando está abierto */
+.home-description.open .container {
+    max-height: 2000px; /* suficiente para todo el contenido */
+    padding-bottom: 1.5rem;
+    border-radius: 16px;
+    background: linear-gradient(to right, #4b2e05, #6a040f);;
+}
+
+.home-description h1 {
     color: #ffd700;
     text-shadow: 1px 1px 5px #000;
-  }
-  
-  .home-description p {
+}
+
+.home-description p {
     font-size: 1.1rem;
     color: #ffefc2;
-  }
-  /* Responsive para pantallas pequeñas */
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .home-description {
       padding: 1.5rem 1rem;
     }
-  
+
     .home-description h1 {
       font-size: 1.5rem;
     }
-  
+
     .home-description p {
       font-size: 1rem;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .home-description {
       padding: 1rem;
     }
-  
+
     .home-description h1 {
       font-size: 1.2rem;
     }
-  
+
     .home-description p {
       font-size: 0.95rem;
     }
-  }
-  
+}

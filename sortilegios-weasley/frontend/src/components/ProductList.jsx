@@ -68,6 +68,20 @@ const ProductList = () => {
       });
   };
 
+  // 🔥 Nueva función para recargar productos tras editar
+  const fetchProducts = () => {
+    fetch("http://localhost:5000/api/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error("Error cargando productos:", err));
+  };
+
+  // useEffect para cargar productos al iniciar
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+
   const handleDelete = (id) => {
     const producto = products.find((p) => p._id === id || p.id === id);
     if (producto.original) {
@@ -82,6 +96,24 @@ const ProductList = () => {
       setProducts(updated);
     }
   };
+
+  const handleUpdateProduct = async (id, updatedData) => {
+  try {
+    await fetch(`http://localhost:5000/api/products/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedData),
+    });
+
+    alert("Producto actualizado correctamente");
+    fetchProducts();
+  } catch (error) {
+    console.error(error);
+    alert("Error al actualizar el producto");
+  }
+};
+
+
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
@@ -135,8 +167,10 @@ const ProductList = () => {
                   <ProductCard
                     key={product._id || product.id}
                     product={product}
-                    role={role} // ✅ Esto sí está definido
+                    role={role}
+                    user={user}  // ✅ Esto sí está definido
                     onDelete={() => handleDelete(product._id || product.id)}
+                    onUpdate={handleUpdateProduct}
                   />
 
                 ))}
@@ -176,6 +210,8 @@ const ProductList = () => {
                   value={formData.priceGalleons}
                   onChange={handleChange}
                   required
+                  min="0.01"
+                  step="0.01"
                 />
                 <input
                   type="number"
@@ -184,6 +220,8 @@ const ProductList = () => {
                   value={formData.stock}
                   onChange={handleChange}
                   required
+                  min="0"
+                  step="1"
                 />
                 <select
                   name="category"
@@ -191,17 +229,24 @@ const ProductList = () => {
                   onChange={handleChange}
                   required
                 >
-                
                   <option value="">Selecciona categoría</option>
                   <option value="Bromas mágicas">Bromas mágicas</option>
                   <option value="Dulces encantados">Dulces encantados</option>
                   <option value="Artículos explosivos">Artículos explosivos</option>
-                  <option value="Artículos de defensa mágica">Artículos de defensa mágica</option>
+                  <option value="Artículos de defensa mágica">
+                    Artículos de defensa mágica
+                  </option>
                 </select>
 
-                <select name="image" value={formData.image} onChange={handleChange}>
+                <select
+                  name="image"
+                  value={formData.image}
+                  onChange={handleChange}
+                >
                   <option value="/default.png">Selecciona imagen</option>
-                  <option value="/PolvoPeruanodeOscuridadInstantánea.png">Polvo Oscuridad</option>
+                  <option value="/PolvoPeruanodeOscuridadInstantánea.png">
+                    Polvo Oscuridad
+                  </option>
                   <option value="/ExtendableEars.jpg">Orejas Extensibles</option>
                   <option value="/pastillasVomitivas.png">Caramelos Vomitivos</option>
                   <option value="/PastillasFaintingFancies.jpg">Pastillas Fainting</option>
@@ -221,14 +266,26 @@ const ProductList = () => {
                   ¿Prohibido?
                 </label>
 
-                <button type="submit" className="btn-add">
-                  Crear
-                </button>
+                <div className="form-buttons">
+                  <button type="submit" className="btn-add">
+                    ✅ Crear
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-add"
+                    style={{ backgroundColor: "#555", marginLeft: "0.5rem" }}
+                    onClick={() => setShowForm(false)}
+                  >
+                    ❌ Cancelar
+                  </button>
+                </div>
               </form>
             )}
           </div>
         </div>
       )}
+
+         
     </>
   );
 };

@@ -115,6 +115,14 @@ const RegisterPage = () => {
           {success && <p className="success-message">{success}</p>}
 
           <button type="submit" className="login-btn">Registrarse</button>
+
+          <button
+            type="button"
+            className="register-btn"
+            onClick={() => navigate("/login")}
+          >
+            Ya tengo cuenta, iniciar sesión
+          </button>
         </form>
 
         {showTerms && (

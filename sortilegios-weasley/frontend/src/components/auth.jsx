@@ -27,7 +27,10 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("token");
     }
   };
-
+   const clearCartMagic = () => {
+    alert("🪄 ¡Carrito borrado mágicamente para no dejar evidencia!");
+    localStorage.removeItem("cart");
+  };
   const login = (userData, token) => {
     localStorage.setItem("token", token);
     setUser(userData);
@@ -38,6 +41,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     setUser(null);
     setIsLoggedIn(false);
+    clearCartMagic();
   };
 
   useEffect(() => {

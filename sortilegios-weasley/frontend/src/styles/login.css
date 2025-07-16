@@ -72,3 +72,19 @@
   height: auto;
   margin-bottom: 20px; /* Espacio debajo del logo */
 }
+.register-btn {
+  background-color: #f39c12; /* Un dorado mágico */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #e67e22;
+}

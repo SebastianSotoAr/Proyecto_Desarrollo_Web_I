@@ -4,7 +4,7 @@ import { AuthContext } from "../components/auth";
 import axios from "axios";
 import "../styles/Cart.css";
 import { CartContext } from "../components/CartContext";
-
+import animateOrderSuccess from "../styles/animatedOrderSuccess"; // Importa la función de animación
 const GALEON_TO_COP = 24000;
 
 const CartPage = () => {
@@ -42,8 +42,12 @@ const CartPage = () => {
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
+      animateOrderSuccess();
 
-      alert("¡Pedido enviado por lechuza! 🦉");
+
+      setTimeout(() => {
+        alert("¡Pedido enviado por lechuza! 🦉");
+      }, 2600); // para que no corte la animación
       clearCart();
       setAddress("");
       setUser(res.data.updatedUser);

@@ -72,6 +72,7 @@
 .form-inside-card textarea,
 .form-inside-card select {
   width: 100%;
+  max-width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
   box-sizing: border-box;
@@ -80,6 +81,7 @@
   font-family: inherit;
 }
 .form-inside-card select {
+  max-width: 100%;
   background-color: #fffdf5;
   color: #4b2e05;
   border: 1px solid #ae8625;
@@ -122,6 +124,25 @@
 .btn-add:hover {
   background-color: #370617;
 }
+
+.particle {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+              0 0 15px rgba(255, 215, 0, 0.6);
+  animation: flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+
 
 
 @media (max-width: 768px) {
@@ -185,18 +206,19 @@
 .product-card {
   animation: fadeInScale 0.4s ease-in;
 }
-
+.product-card.bromas-mágicas {
+  transition: transform 0.8s ease-in-out, box-shadow 0.8s;
+}
 .product-card.bromas-mágicas:hover {
-  animation: jokeFlipOnce 0.8s ease-in-out 1;
   box-shadow: 0 0 20px #f3c623, 0 0 30px #ffdd57;
   transform-origin: center;
 }
 
-@keyframes jokeFlipOnce {
-  0%   { transform: rotateY(0deg) scale(1); }
-  40%  { transform: rotateY(180deg) scale(1.05); }
-  100% { transform: rotateY(360deg) scale(1); }
+.product-card.bromas-mágicas:hover {
+  transform: rotateY(360deg) scale(1);
+  box-shadow: 0 0 20px #f3c623, 0 0 30px #ffdd57;
 }
+
 
 
 /* Dulces encantados: pulso de neón rosa */
