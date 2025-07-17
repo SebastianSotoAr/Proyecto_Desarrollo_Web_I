@@ -15,15 +15,17 @@
 ## Instrucciones para visualizar la pagina web
 
 ### ⚙️ Instalación y ejecución local
-Abrir la terminal y entrá a la carpeta del proyecto:
+Abrir dos terminales y entrá a la carpeta del proyecto:
 
 ```
-cd sortilegios-weasley
+cd sortilegios-weasley/frontend
+cd sortilegios-weasley/backend
 ```
 
 Esto nos ubica dentro del directorio principal del proyecto, donde se encuentran todos los archivos necesarios para trabajar con el sitio web.
+realizar todo lo siguientre en ambas terminales
 
-### Instalar las dependencias
+### Instalar las dependencias  en ambas terminales
 ```
 npm install
 ```
@@ -32,7 +34,7 @@ Estas dependencias están listadas en el archivo package.json.
 
 Solo es necesario ejecutarlo una vez, justo después de clonar o descargar el proyecto por primera vez.
 
-### Ejecutar el servidor  
+### Ejecutar el servicio web como la logica del servidor  
 
 ```
 npm start
